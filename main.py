@@ -34,6 +34,8 @@ if __name__ == "__main__":
     while prompt != "0":
 
         model_response = generate_text_from_prompt(prompt)
+        
+        print(model_response)
 
         print(model_response["choices"][0]["text"].strip())
 
