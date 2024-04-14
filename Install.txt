@@ -1,0 +1,11 @@
+requisite install python3 and pip
+
+
+MAKE_ARGS="-DLLAMA_VULKAN=on" pip install llama-cpp-python
+
+
+https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/resolve/main/zephyr-7b-beta.Q4_0.gguf?ref=localhost
+
+execute by navigating to the directory of the main.py
+
+python3 main.py
