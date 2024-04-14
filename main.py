@@ -30,7 +30,11 @@ def generate_text_from_prompt(
 if __name__ == "__main__":
 
     prompt = input("Uhhhhh:")
+    
+    while prompt != "0":
 
-    model_response = generate_text_from_prompt(prompt)
+        model_response = generate_text_from_prompt(prompt)
 
-    print(model_response)
+        print(model_response["choices"][0]["text"].strip())
+
+        prompt = input("Uhhhhh:")
