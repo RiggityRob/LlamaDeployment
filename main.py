@@ -3,15 +3,15 @@ from llama_cpp import Llama
 
 # GLOBAL VARIABLES
 my_model_path = "./zephyr-7b-beta.Q4_0.gguf"
-CONTEXT_SIZE = 512
+CONTEXT_SIZE = 1024
 
 
 # LOAD THE MODEL
-zephyr_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE)
+zephyr_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE, chat_format='llama-2')
 
 
 def generate_text_from_prompt(
-    user_prompt, max_tokens=100, temperature=0.3, top_p=0.1, echo=True, stop=["Q", "\n"]
+    user_prompt, max_tokens=1000, temperature=0.3, top_p=0.1, echo=True, stop=["Q"]
 ):
 
     # Define the parameters
