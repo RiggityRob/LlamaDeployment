@@ -7,7 +7,7 @@ CONTEXT_SIZE = 2048
 
 
 # LOAD THE MODEL
-zephyr_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE, chat_format='llama-2')
+init_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE, chat_format='llama-2')
 
 
 def generate_text_from_prompt(
@@ -15,7 +15,7 @@ def generate_text_from_prompt(
 ):
 
     # Define the parameters
-    model_output = zephyr_model(
+    model_output = init_model(
         user_prompt,
         max_tokens=max_tokens,
         temperature=temperature,
