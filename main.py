@@ -29,6 +29,8 @@ def generate_text_from_prompt(
 
 if __name__ == "__main__":
 
+    f = open('responses.txt', 'a')
+
     prompt = input("Uhhhhh:")
     
     while prompt != "0":
