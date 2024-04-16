@@ -1,27 +1,17 @@
 ---------------------------------------------------------------------------------------------------
 
+so deploying a local LLM is kind of easy now, not just with Chat with RTX.
+
 https://github.com/ggerganov/llama.cpp/releases
+heres tons of ports of Llama for different hardware (AVX512, Vulkan, Cuda,  Intel GPU/SYCL, ARM64 support?), and it supports a lot of different models.
 
-so deploying a local LLM is kind of easy now lol
+All the different extensions means its using different math to run the same LLM.
 
-not just with Chat with RTX
+The big magic here is the quantization, or how the LLM is compressed and converted to diff maths. And this also frees us from the GPU shackles (it will perform worse though).
 
-but theres tons of ports of Llama for different hardware (AVX512, Vulkan, Cuda,  Intel GPU/SYCL, ARM64 support?)
+It's still incredibly impressive that its been "easy" to port it into so many instruction sets.
 
-and it supports a lot of different models
-
-Im having to mess around with AMD friendly stuff on this laptop (deliberate choice).
-but definitely best/easiest will be CUDA on Nvidia hardware
-
-Gonna try and do a write up if you want to try it later
-
-all the different extensions means its using different math to run the same LLM (edited) 
-
-the big magic here is the quantization, or how the LLM is compressed and converted to diff maths. And this also frees us from the GPU shackles (it will perform worse tho)
-
-still incredibly impressive that its been "easy" to port it into so many instruction sets.
-
-lol okay idk if I even need to make like a formal document
+Maybe I will produce a more formal document.
 
 with git, python3, and pip you can do
 
@@ -36,12 +26,12 @@ from llama_cpp import Llama
 
 # GLOBAL VARIABLES
 my_model_path = "./zephyr-7b-beta.Q4_0.gguf"
-CONTEXT_SIZE = 512
+CONTEXT_SIZE = 1024
 
 
 # LOAD THE MODEL
 zephyr_model = Llama(model_path=my_model_path,
-                    n_ctx=CONTEXT_SIZE)
+                    n_ctx=CONTEXT_SIZE, chat_format='llama-2')
 
 and make a wrapper to give it input
 
@@ -50,7 +40,7 @@ def generate_text_from_prompt(user_prompt,
                              temperature = 0.3,
                              top_p = 0.1,
                              echo = True,
-                             stop = ["Q", "\n"]):
+                             stop = ["Q"]):
 
 
 
@@ -81,14 +71,13 @@ if __name__ == "__main__":
 
    print(model_response)
 
-(edited)
+   print(model_response["choices"][0]["text"].strip())
 
 (switched this for a direct link, its a 4GB download)
 https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/resolve/main/zephyr-7b-beta.Q4_0.gguf?ref=localhost
 heres the model used in the example, I did a Vulkan install to  be hardware agnostic but theres other options
 
-heres the files
-2 files
+This repo contains the complete .py files
 
 and use the gguf/localhost link above to download the exact model in the config.
 
