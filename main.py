@@ -3,7 +3,7 @@ from llama_cpp import Llama
 
 # GLOBAL VARIABLES
 my_model_path = "./zephyr-7b-beta.Q4_0.gguf"
-CONTEXT_SIZE = 1024
+CONTEXT_SIZE = 2048
 
 
 # LOAD THE MODEL
