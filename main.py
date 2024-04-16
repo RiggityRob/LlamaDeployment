@@ -37,6 +37,8 @@ if __name__ == "__main__":
         
         print(model_response)
 
-        print(model_response["choices"][0]["text"].strip())
+        print(model_response["choices"][0]["text"].strip(), file=f)
+
+        f.close()
 
         prompt = input("Uhhhhh:")
