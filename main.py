@@ -7,7 +7,7 @@ CONTEXT_SIZE = 2048
 
 
 # LOAD THE MODEL
-init_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE, chat_format='llama-2')
+init_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE, split_mode=llama_cpp.LLAMA_SPLIT_MODE_NONE, n_gpu_layers=10, chat_format='llama-2')
 
 
 def generate_text_from_prompt(
@@ -35,11 +35,11 @@ if __name__ == "__main__":
     
     while prompt != "0":
 
-        model_response = generate_text_from_prompt(prompt)
-        
-        print(model_response)
+        model_response = generate_text_from_prompt(prompt) 
 
-        print(str(model_response["choices"][0]["text"].strip()), file=f)
+        print(model_response["choices"][0]["text"].replace('\n','\n \r'))
+
+        print(model_response["choices"][0]["text"].replace('\n','\n \r'), file=f)
 
         prompt = input("Uhhhhh:")
 
