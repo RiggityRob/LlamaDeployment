@@ -7,7 +7,7 @@ CONTEXT_SIZE = 2048
 
 
 # LOAD THE MODEL
-init_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE, split_mode=llama_cpp.LLAMA_SPLIT_MODE_NONE, n_gpu_layers=30, chat_format='llama-2')
+init_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE, n_gpu_layers=30, chat_format='llama-2')
 
 
 def generate_text_from_prompt(
