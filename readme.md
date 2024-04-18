@@ -71,7 +71,8 @@ if __name__ == "__main__":
 
    print(model_response)
 
-   print(model_response["choices"][0]["text"].strip())
+
+   print(model_response["choices"][0]["text"].replace('\n','\n \r'))
 
 (switched this for a direct link, its a 4GB download)
 https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/resolve/main/zephyr-7b-beta.Q4_0.gguf?ref=localhost
