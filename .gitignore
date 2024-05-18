@@ -3,3 +3,5 @@ zephyr-7b-beta.Q4_0.gguf
 *.gguf
 download.py
 responses.txt
+*.vsidx
+/.vs
