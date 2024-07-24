@@ -2,7 +2,7 @@ from llama_cpp import Llama
 
 
 # GLOBAL VARIABLES
-my_model_path = "./Mistral-Nemo-Instruct-2407-Q6_K_L.gguf"
+my_model_path = "./MistralNemoInstruct2407Q6_K_L.gguf"
 CONTEXT_SIZE = 4096
 
 
