@@ -2,8 +2,8 @@ from llama_cpp import Llama
 
 
 # GLOBAL VARIABLES
-my_model_path = "./zephyr-7b-beta.Q4_0.gguf"
-CONTEXT_SIZE = 2048
+my_model_path = "./Mistral-Nemo-Instruct-2407-Q6_K_L.gguf"
+CONTEXT_SIZE = 4096
 
 
 # LOAD THE MODEL
