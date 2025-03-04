@@ -11,7 +11,7 @@ init_model = Llama(model_path=my_model_path, n_ctx=CONTEXT_SIZE, chat_format='ll
 
 
 def generate_text_from_prompt(
-    user_prompt, max_tokens=3000, temperature=0.3, top_p=0.1, echo=True, stop=["Q"]
+    user_prompt, max_tokens=3000, temperature=0.3, top_p=0.5, echo=True, stop=["Q"]
 ):
 
     # Define the parameters
