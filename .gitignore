@@ -5,4 +5,4 @@ download.py
 responses.txt
 *.vsidx
 /.vs
-/.llama.cpp
+/llama.cpp
